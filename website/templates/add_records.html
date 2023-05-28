@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="col-md-6 offset-md-3">
-<h1>Add Records</h1>
+<h1>Add Contacts</h1>
 
-    <form method="POST" action ="{% url 'add_records'%}" >
+    <form class="ui form" method="POST" action ="{% url 'add_records'%}" >
         {% csrf_token %}
 
         {{ form.as_p }}
 
   <br/>
-  <button type="submit" class="btn btn-warning">Add Record</button>
+  <button class="ui inverted green button">Add Record</button>
 	</form>
 
 

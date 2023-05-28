@@ -5,14 +5,18 @@
 <div class="col-md-6 offset-md-3">
 <h1>Register</h1>
 <br/>
-      <form method="POST" action ="" >
+      <form class="ui form" method="POST" action ="" >
         {% csrf_token %}
           	{% if form.errors %}
-			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<div class="ui warning message transition hidden">
+				<i class="close icon"></i>
+
 			  Your Form Has Errors
+				<div class="header">
 			  {% for field in form %}
 			  	{% if field.errors %}
 			  		{{ field.errors }}
+				</div>
 			  	{% endif %}
 			  {% endfor %}
 			  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -22,7 +26,7 @@
           {{ form.as_p}}
 
       <br/>
-            <button class="btn btn-secondary" type="submit">Register</button>
+            <button class="ui inverted primary button">Register</button>
                </form>
 </div>
 

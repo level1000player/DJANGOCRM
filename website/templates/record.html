@@ -1,31 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ customer_record.first_name }}  {{ customer_record.last_name }}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+<div class="ui container">
+  <div class="ui card">
+    <div class="content">
+      <i class="right floated star icon"></i>
+      <div class="header">
+        {{ customer_record.first_name }} {{ customer_record.last_name }}
+      </div>
+      <div class="description">
+        <p>Email: {{ customer_record.email }}</p>
+        <p>Phone: {{ customer_record.phone }}</p>
+        <p>Address: {{ customer_record.address }}</p>
+        <p>City: {{ customer_record.city }}</p>
+        <p>State: {{ customer_record.state}}</p>
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="">
+        <a
+          class="ui inverted red button"
+          href="{% url 'delete_record' customer_record.id %}"
+        >
+          Delete
+        </a>
+      </span>
+      <span class="right floated star">
+        <a
+                class="ui inverted orange button"
+                href="{% url 'update_record' customer_record.id %}"
+        >
+          Update
+        </a>
+      </span>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
 
-      <li class="list-group-item"> <strong>E-mail:</strong> {{ customer_record.email }}</li>
-    <li class="list-group-item"> <strong>Phone:</strong> {{ customer_record.phone }}</li>
-    <li class="list-group-item"><strong> Address:</strong> {{ customer_record.address }}</li>
-    <li class="list-group-item"> <strong>City:</strong> {{ customer_record.city }}</li>
-      <li class="list-group-item"> <strong>State:</strong> {{ customer_record.state}}</li>
-    <li class="list-group-item"> <strong>Created</strong>: {{ customer_record.created_at }}</li>
-    <li class="list-group-item"> <strong>ID:</strong> {{ customer_record.id }}</li>
-
-
-
-  </ul>
-  <div class="card-body">
-    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-    <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
-    <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
-  </div>
-</div>
 
 
 
