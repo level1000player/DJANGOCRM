@@ -8,19 +8,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js"></script>
 
-    <script
+    <script>
+$(document).ready(function() {
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
+});
+</script>
 
-    '.message .close')
-    .on('click', function() {
-    $(this)
-    .closes
-</head>
-<head>t('.message')
-    .transition('fade')
-    ;
-    })
-    ;
-    ></script>
 </head>
   <body>
     {% include 'navbar.html' %}
